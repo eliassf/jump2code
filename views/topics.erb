@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="page-header">
+    <h1> <%= topics.title %> <small>Gary</small></h1>
+  </div>
+  <div>
+    <%= topics.body %>
+  </div>
+  
+  
+  <form method="post" action="/topics/<%= topics.id %>">
+    <div class="form-group">
+      <textarea name="body" class="form-control" placeholder="Comentario"></textarea>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Comentar</button>
+  </form>
+  
+  
+  <div class="panel panel-default">
+    <% topics.comments.each do |comment| %>      
+      <!-- List group -->
+      <ul class="list-group">
+        <li class="list-group-item"><%= comment.body %></li>
+      </ul>
+    <% end %>
+  </div>
+  
+</div>
